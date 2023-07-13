@@ -1,5 +1,7 @@
 import { styled } from '@mui/system';
 import { Card, Box, Typography } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 export const ProductDetailContainer = styled('div')({
   padding: '80px 0',
@@ -51,3 +53,18 @@ export const ProductDescription = styled(Typography)({
   color: '#4b5563',
   marginBottom: '1rem',
 });
+
+export const ShadowBox = styled(Box)(({ theme }) => ({
+  fontWeight: 'bold',
+  border: '1px solid #ccc',
+  padding: '8px',
+  borderRadius: '4px',
+  marginBottom: '1rem',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  boxShadow: `0 0 5px rgba(0, 0, 0, 0.2)`,
+  maxWidth: '100%', 
+  wordBreak: 'break-word',
+}));
+

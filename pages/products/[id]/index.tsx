@@ -2,7 +2,8 @@ import { GetServerSideProps } from 'next';
 import connectToDatabase from '../../../db';
 import { ObjectId } from 'mongodb';
 import ProductDetailPage from '../../../components/ProductDetailPage'
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+  
 interface Product {
   _id: string;
   name: string;

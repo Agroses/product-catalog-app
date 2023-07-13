@@ -3,8 +3,15 @@ import { styled } from '@mui/system';
 import Link from 'next/link';
 import { Button } from '@mui/material';
 
-
-const ProductCardContainer = styled(Grid)(({ theme }) => ({
+interface Product {
+  _id: string;
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  description: string;
+}
+export const ProductCardContainer = styled(Grid)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',

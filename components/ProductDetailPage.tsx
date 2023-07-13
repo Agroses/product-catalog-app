@@ -1,6 +1,9 @@
-import { NextPage } from 'next';
+import { NextPage ,GetServerSideProps} from 'next';
+import { ObjectId } from 'mongodb';
+
 import { styled } from '@mui/system';
-import { Typography, Card, Box } from '@mui/material';
+
+import { Box, Card, CardContent, Typography } from '@mui/material';
 import {
   ProductDetailContainer,
   ProductDetailCard,
@@ -9,6 +12,7 @@ import {
   ProductName,
   ProductPrice,
   ProductDescription,
+  ShadowBox
 } from '../styles/ProductDetailStyles';
 
 // Rest of the code...
@@ -25,25 +29,25 @@ interface ProductDetailProps {
   product: Product;
 }
 
+
 const ProductDetailPage: NextPage<ProductDetailProps> = ({ product }) => {
   return (
     <ProductDetailContainer>
       <ProductDetailCard>
+      <Typography variant="h2">{product.name}</Typography>
         <ProductImage src={product.image} alt={product.name} />
-        <ProductInfoContainer>
-          <p className="text-sm leading-none text-gray-600 dark:text-gray-300">{product.name}</p>
-          <ProductName className="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 dark:text-white mt-2">
-            {product.name}
-          </ProductName>
-          <ProductPrice>
-            <Box border="1px solid #ccc" p={2} display="inline-block">
-              price: ${product.price}
-            </Box>
-          </ProductPrice>
-          <ProductDescription>
-            <Box border="1px solid #ccc" p={2}>Description: {product.description}</Box>
-          </ProductDescription>
-        </ProductInfoContainer>
+        <CardContent>
+          <ShadowBox>
+            <Typography variant="h4" color="text.secondary">
+             Price: {`$${product.price}`}
+            </Typography>
+          </ShadowBox>
+          <ShadowBox>
+            <Typography variant="body1" color="text.secondary">
+             Description: {product.description}
+            </Typography>
+          </ShadowBox>
+        </CardContent>
       </ProductDetailCard>
     </ProductDetailContainer>
   );
