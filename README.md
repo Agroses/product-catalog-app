@@ -8,7 +8,11 @@
 
 4- Add the dummy data to the collection.
 
-Installation
+# Install the MongoDB Extension to check the connection:
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode
+
+# Installation:
+
 Download MongoDB Compass from the official MongoDB website: https://www.mongodb.com/try/download/compass
 
 -Choose the appropriate version for your operating system and click on the download button.
