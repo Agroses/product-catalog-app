@@ -16,7 +16,7 @@ export const LoginContainer = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   minHeight: '100vh',
-  backgroundColor: '#f2f2f2', // Set your desired background color here
+  backgroundColor: '#f2f2f2',
 }));
 
 export const ProductTitle = styled(Typography)({
