@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Grid, TextField } from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
 import { styled } from '@mui/system';
 import Link from 'next/link';
 import { Button } from '@mui/material';
@@ -25,8 +25,8 @@ export const ProductCardContainer = styled(Grid)(({ theme }) => ({
   textDecoration: 'none',
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
   transition: 'box-shadow 0.3s ease',
-  maxWidth: '300px',
-
+  maxWidth: '225px',
+  
   '&:hover': {
     boxShadow: '0px 0px 20px rgba(0, 0, 0, 90 )',
     transform: 'translateY(-4px)',
@@ -55,17 +55,6 @@ const ProductTitle = styled(Typography)({
 const ProductDetailsContainer = styled(Box)({
   padding: '0.5rem',
 });
-
-const PageTitle = styled(Typography)(({ theme }) => ({
-  fontSize: '2rem',
-  fontWeight: 'bold',
-  marginBottom: theme.spacing(4),
-  color: '#333333',
-}));
-
-const ProductCardButton = styled(Button)(({ theme }) => ({
-  marginTop: theme.spacing(2),
-}));
 
 const ProductPrice = styled(Typography)({
   fontSize: '1rem',

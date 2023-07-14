@@ -1,20 +1,25 @@
 import { styled } from '@mui/system';
 import { Card, Box, Typography } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 export const ProductDetailContainer = styled('div')({
   padding: '80px 0',
   backgroundColor: '#f7fafc',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  minHeight: '100vh',
+  
+
 });
 
 export const ProductDetailCard = styled(Card)(({ theme }) => ({
   maxWidth: 'lg',
-  margin: 'auto',
+  margin: '0 auto',
   padding: '24px',
   backgroundColor: '#fff',
   borderRadius: theme.spacing(2),
-  boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+  boxShadow: '0 0 10px rgba(0, 0, 0, 100)',
   transition: 'transform 0.3s ease',
   '&:hover': {
     transform: 'scale(1.02)',
@@ -38,20 +43,21 @@ export const ProductName = styled(Typography)({
   fontSize: '2xl',
   fontWeight: 'bold',
   marginBottom: '1rem',
-  alignSelf: 'flex-start', // Aligns the name to the top of the container
+  alignSelf: 'flex-start',
 });
 
 export const ProductPrice = styled(Typography)({
   fontSize: 'xl',
   fontWeight: 'bold',
   marginBottom: '1rem',
-  alignSelf: 'flex-start', // Aligns the price to the right of the image
+  alignSelf: 'flex-start', 
 });
 
 export const ProductDescription = styled(Typography)({
   fontSize: 'lg',
   color: '#4b5563',
   marginBottom: '1rem',
+  
 });
 
 export const ShadowBox = styled(Box)(({ theme }) => ({
@@ -63,8 +69,11 @@ export const ShadowBox = styled(Box)(({ theme }) => ({
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
-  boxShadow: `0 0 5px rgba(0, 0, 0, 0.2)`,
+  boxShadow: `0 0 5px rgba(0, 0, 0, 10)`,
   maxWidth: '100%', 
   wordBreak: 'break-word',
+  display: 'inline-block',
+  margin: theme.spacing(1),
+  backgroundColor: '#f5f5f5',
 }));
 

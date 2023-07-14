@@ -29,13 +29,13 @@ export const ProductCard = styled(Grid)(({ theme }) => ({
   maxWidth: '300px',
 
   '&:hover': {
-    boxShadow: '0px 0px 20px rgba(0, 0, 0, 20 )', // Update the box-shadow value for hover effect
-    transform: 'translateY(-4px)', // Add translateY for slight upward movement
+    boxShadow: '0px 0px 20px rgba(0, 0, 0, 20 )', 
+    transform: 'translateY(-4px)', 
   },
 }));
 
 export const PageContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: '#708090', // Set your desired background color here (black)
+  backgroundColor: '#708090', 
   minHeight: '100vh',
 }));
 

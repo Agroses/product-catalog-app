@@ -12,23 +12,12 @@ import {
   SearchInput,
   SearchButton,
   LoginContainer,
-} from '../../styles/styles';
-import LoginForm from '../../components/LoginForm';
-import ProductCard from '../../components/ProductContainer';
+} from '../../src/styles/ProductsPagestyles';
+import LoginForm from '../../src/components/LoginForm';
+import ProductCard from '../../src/components/ProductContainer';
 import { useRouter } from 'next/router';
+import {Product, Props} from '../../src/interface/Product'
 
-interface Product {
-  _id: string;
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  description: string;
-}
-
-interface Props {
-  products: Product[];
-}
 
 const IndexPage: NextPage<Props> = ({ products }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,11 +25,9 @@ const IndexPage: NextPage<Props> = ({ products }) => {
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(9);
-  const router = useRouter(); // Initialize the router object
+  const router = useRouter(); 
 
   const handleLogin = (username: string, password: string) => {
-    // Perform your authentication logic here
-    // For simplicity, let's assume a successful login for any username/password combination
     setIsLoggedIn(true);
   };
 
@@ -108,7 +95,7 @@ const IndexPage: NextPage<Props> = ({ products }) => {
               Search
             </SearchButton>
           </SearchBarContainer>
-          <Grid container spacing={3}>
+          <Grid container spacing={9}>
             {displayedProducts.map((product) => (
               <Grid key={product._id} item xs={12} sm={6} md={4}>
                 <ProductCard
@@ -136,13 +123,15 @@ const IndexPage: NextPage<Props> = ({ products }) => {
   );
 };
 
+
 export default IndexPage;
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const db = await connectToDatabase();
   const collection = db.collection<Product>('products');
   const products = await collection.find().toArray();
-
+  
+ 
   return {
     props: {
       products: products.map((product) => ({

@@ -1,8 +1,14 @@
-import { GetServerSideProps } from 'next';
 import connectToDatabase from '../../../db';
+import {
+  ProductDetailContainer,
+  ProductDetailCard,
+  ProductImage,
+  ShadowBox
+} from '../../../src/styles/ProductDetailStyles';
+import { NextPage ,GetServerSideProps} from 'next';
 import { ObjectId } from 'mongodb';
-import ProductDetailPage from '../../../components/ProductDetailPage'
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CardContent, Typography } from '@mui/material';
+
   
 interface Product {
   _id: string;
@@ -16,8 +22,32 @@ interface ProductDetailProps {
   product: Product;
 }
 
+const ProductDetailPage: NextPage<ProductDetailProps> = ({ product }) => {
+  return (
+    <ProductDetailContainer>
+      <ProductDetailCard>
+      <Typography variant="h2">{product.name}</Typography>
+        <ProductImage src={product.image} alt={product.name} />
+        <CardContent>
+          <ShadowBox>
+            <Typography variant="h4" color="text.secondary">
+             Price: {`$${product.price}`}
+            </Typography>
+          </ShadowBox>
+          <ShadowBox>
+            <Typography variant="body1" color="text.secondary">
+             Description: {product.description}
+            </Typography>
+          </ShadowBox>
+        </CardContent>
+      </ProductDetailCard>
+    </ProductDetailContainer>
+  );
+};
 
 export default ProductDetailPage;
+
+
 
 export const getServerSideProps: GetServerSideProps<ProductDetailProps> = async ({ params }) => {
   const { id } = params as { id: string };
@@ -44,6 +74,7 @@ export const getServerSideProps: GetServerSideProps<ProductDetailProps> = async 
         },
       },
     };
+    
   } catch (error) {
     console.error('Error retrieving product:', error);
     return {

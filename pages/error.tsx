@@ -1,24 +1,25 @@
 import { NextPage, GetServerSideProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { useRouter } from 'next/router';
-import ErrorPage from '../components/ErrorPage';
+import { Typography } from '@mui/material';
 
 interface ErrorProps {
   message: string;
 }
 
 const Error: NextPage<ErrorProps> = ({ message }) => {
-  const router = useRouter();
-
-  return <ErrorPage message={message} />;
+  return (
+    <Typography variant="h3" align="center" color="error">
+      {message}
+    </Typography>
+  );
 };
 
-export const getServerSideProps: GetServerSideProps<ErrorProps, ParsedUrlQuery> = async (context) => {
-  const { message } = context.query;
+export const getServerSideProps: GetServerSideProps<ErrorProps, ParsedUrlQuery> = async () => {
+  const message = 'Product not found';
 
   return {
     props: {
-      message: Array.isArray(message) ? message[0] : message || 'Error occurred',
+      message,
     },
   };
 };

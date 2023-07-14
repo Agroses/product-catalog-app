@@ -82,4 +82,3 @@ export const SearchButton = styled(Button)(({ theme }) => ({
     backgroundColor: '#0053b3',
   },
 }));
-

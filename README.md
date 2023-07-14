@@ -1,47 +1,38 @@
-# TypeScript Next.js example
+# How to use
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+1- Install MongoDB Compass
 
-## Deploy your own
+2- Create a new database by clicking on the "Create Database" button.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript)
+3- Create a Collection called (products).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+4- Add the dummy data to the collection.
 
-## How to use it?
+Installation
+Download MongoDB Compass from the official MongoDB website: https://www.mongodb.com/try/download/compass
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+-Choose the appropriate version for your operating system and click on the download button.
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-```
+Once the download is complete, run the installer and follow the installation instructions.
 
-```bash
-yarn create next-app --example with-typescript with-typescript-app
-```
+Connect to MongoDB Server
+Launch MongoDB Compass.
 
-```bash
-pnpm create next-app --example with-typescript with-typescript-app
-```
+On the initial screen, click on "Connect" to connect to a MongoDB server.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+In the connection dialog, enter the necessary connection details:
 
-## Notes
+Hostname: The hostname of your MongoDB server. If running on the local machine, use "localhost".
+Port: The port number on which MongoDB is running. The default port is 27017.
+Authentication: If your MongoDB server requires authentication, select the appropriate authentication method and provide the required credentials.
+Click on "Connect" to establish a connection to the MongoDB server.
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
 
-```
-npm install --save-dev typescript
-```
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+After successfully connecting to the MongoDB server, you will see a list of available databases.
 
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
+Once inside the database, click on the "Create Collection" button to create a new collection.
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+Enter "products" as the collection name.
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+Click on "Create" to create the "products" collection.
